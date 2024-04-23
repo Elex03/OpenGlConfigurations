@@ -1,7 +1,7 @@
 // This code example is created for educational purpose
 // by Thorsten Thormaehlen (contact: www.thormae.de).
 // It is distributed without any warranty.
-/*
+
 #include <GL/freeglut.h> // we use glut here as window manager
 
 #include <math.h>
@@ -166,25 +166,3 @@ static void glutKeyboard(unsigned char key, int x, int y) {
         glutDisplay();
     }
 }
-
-
-int main(int argc, char** argv)
-{
-    glutInit(&argc, argv);
-    glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
-    glutInitWindowPosition(100, 100);
-    glutInitWindowSize(320, 320);
-
-    glutCreateWindow("Use the 1 key to perform a dolly zoom");
-
-    glutDisplayFunc(glutDisplay);
-    //glutIdleFunc(glutDisplay);
-    glutReshapeFunc(glutResize);
-    glutKeyboardFunc(glutKeyboard);
-
-    renderer = new Renderer;
-    renderer->init();
-
-    glutMainLoop();
-}
-*/

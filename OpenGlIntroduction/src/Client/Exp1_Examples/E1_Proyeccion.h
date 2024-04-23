@@ -1,29 +1,29 @@
 // This code example is created for educational purpose
 // by Thorsten Thormaehlen (contact: www.thormae.de).
 // It is distributed without any warranty.
-/*
+
 #include <GL/freeglut.h> // we use glut here as window manager
 #define _USE_MATH_DEFINES
 #include <math.h>
 
-class Renderer {
+class Renderer1 {
 
 public:
     float t;
 
 public:
-    Renderer() : t(0.0) {}
+    Renderer1() : t(0.0) {}
 
 public:
 
-    void resize(int w, int h) {
+    void resize1(int w, int h) {
         glViewport(0, 0, w, h);
         glMatrixMode(GL_PROJECTION);
         glLoadIdentity();
         gluPerspective(30.0, (float)w / (float)h, 2.0, 20.0);
     }
 
-    void display() {
+    void display1() {
         glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -38,20 +38,20 @@ public:
             0.0, 1.0, 0.0); // up
 
         //draw cube at origin
-        drawCube();
+        drawCube1();
 
         glRotatef(45.0f, 0.0f, 0.0f, 1.0f);
         glTranslatef(2.5f, 0.0f, 0.0f);
         glScalef(0.5f, 0.5f, 0.5f);
 
-        drawCube(); //draw transformed cube
+        drawCube1(); //draw transformed cube
     }
 
     void init() {
         glEnable(GL_DEPTH_TEST);
     }
 private:
-    void drawCube() {
+    void drawCube1() {
         glColor3f(1.0, 0.0, 0.0);
         glBegin(GL_POLYGON);
         glVertex3f(-1.0f, 1.0f, 1.0f);
@@ -98,46 +98,24 @@ private:
 };
 
 //this is a static pointer to a Renderer used in the glut callback functions
-static Renderer* renderer;
+static Renderer1* renderer1;
 
 //glut static callbacks start
-static void glutResize(int w, int h)
+static void glutResize1(int w, int h)
 {
-    renderer->resize(w, h);
+    renderer1->resize1(w, h);
 }
 
-static void glutDisplay()
+static void glutDisplay1()
 {
-    renderer->display();
+    renderer1->display1();
     glutSwapBuffers();
 }
 
-static void timer(int v)
+static void timer1(int v)
 {
     float offset = 1.0f;
-    renderer->t += offset;
-    glutDisplay();
-    glutTimerFunc(unsigned(20), timer, ++v);
+    renderer1->t += offset;
+    glutDisplay1();
+    glutTimerFunc(unsigned(20), timer1, ++v);
 }
-
-int main(int argc, char** argv)
-{
-    glutInit(&argc, argv);
-    glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
-    glutInitWindowPosition(100, 100);
-    glutInitWindowSize(320, 320);
-
-    glutCreateWindow("Demo for gluLookAt");
-
-    glutDisplayFunc(glutDisplay);
-    //glutIdleFunc(glutDisplay);
-    glutReshapeFunc(glutResize);
-
-    renderer = new Renderer;
-    renderer->init();
-
-    glutTimerFunc(unsigned(20), timer, 0);
-
-    glutMainLoop();
-}
-*/
