@@ -1,4 +1,3 @@
-/*
 // This code example is created for educational purpose
 // by Thorsten Thormaehlen (contact: www.thormae.de).
 // It is distributed without any warranty.
@@ -7,16 +6,16 @@
 
 #include <math.h>
 
-class Renderer {
+class Renderer2 {
 
 public:
   float t;
 
 public:
-  Renderer() : t(0.0), width(0), height(0) {}
+  Renderer2() : t(0.0), width(0), height(0) {}
 
 public:
-  void display() {
+  void display2() {
     glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -24,53 +23,53 @@ public:
     glViewport(width/2, height/2, width/2, height/2);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
-    drawFrame();
+    drawFrame2();
     // set camera (look from positive x-direction)
     gluLookAt(10.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0);
     // draw scene
-    drawSceneGrid();
-    drawRotatingPyramid();
+    drawSceneGrid2();
+    drawRotatingPyramid2();
 
     // bottom left viewport (look from left)
     glViewport(0, 0, width/2, height/2);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
-    drawFrame();
+    drawFrame2();
      // set camera (look from negative y-direction)
     gluLookAt(0.0, -10.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0);
     // draw scene
-    drawSceneGrid();
-    drawRotatingPyramid();
+    drawSceneGrid2();
+    drawRotatingPyramid2();
 
     // top left viewport (look from top)
     glViewport(0, height/2, width/2, height/2);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
-    drawFrame();
+    drawFrame2();
     // set camera (look from positive z-direction)
      gluLookAt(0.0, 0.0, 10.0, 0.0, 0.0, 0.0, -1.0, 0.0, 0.0);
     // draw scene
-    drawSceneGrid();
-    drawRotatingPyramid();
+    drawSceneGrid2();
+    drawRotatingPyramid2();
 
     // bottom right viewport (perspective)
     glViewport(width/2, 0, width/2, height/2);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
-    drawFrame();
+    drawFrame2();
     // set camera
     gluLookAt(8.0, -2.0, 5.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0);
     // draw scene
-    drawSceneGrid();
-    drawRotatingPyramid();
+    drawSceneGrid2();
+    drawRotatingPyramid2();
   }
 
-  void init() {
+  void init2() {
     glEnable(GL_DEPTH_TEST);
     //glEnable(GL_CULL_FACE);
   }
 
-  void resize(int w, int h) {
+  void resize2(int w, int h) {
     width = w;
     height = h;
     glMatrixMode(GL_PROJECTION);
@@ -84,7 +83,7 @@ private:
   int height;
 
 private:
-  void drawFrame() {
+  void drawFrame2() {
       glLineWidth(2.0f);
       glMatrixMode(GL_PROJECTION);
       glPushMatrix();
@@ -101,7 +100,7 @@ private:
       glLineWidth(1.0f);
   }
 
-  void drawSceneGrid() {
+  void drawSceneGrid2() {
       glColor3f(0.3f, 0.3f, 0.3f);
       glBegin(GL_LINES);
       for(unsigned i=0; i<=10; i++) {
@@ -113,14 +112,14 @@ private:
       glEnd();
 
     glColor3f(0.0f, 0.0f, 1.0f);
-    drawCoordinateAxisZ();
+    drawCoordinateAxisZ2();
     glColor3f(0.0f, 1.0f, 0.0f);
-    drawCoordinateAxisY();
+    drawCoordinateAxisY2();
     glColor3f(1.0f, 0.0f, 0.0f);
-    drawCoordinateAxisX();
+    drawCoordinateAxisX2();
   }
 
-  void drawCoordinateAxisZ() {
+  void drawCoordinateAxisZ2() {
     glLineWidth(2.0f);
     glBegin(GL_LINES);
     glVertex3f(0.0f, 0.0f, 0.0f); // z-axis
@@ -151,26 +150,26 @@ private:
     glEnd();
   }
 
-  void drawCoordinateAxisX() {
+  void drawCoordinateAxisX2() {
       glPushMatrix();
       glRotatef(90.0f, 0.0f, 1.0f, 0.0f);
-      drawCoordinateAxisZ();
+      drawCoordinateAxisZ2();
       glPopMatrix();
   }
 
-  void drawCoordinateAxisY() {
+  void drawCoordinateAxisY2() {
       glPushMatrix();
       glRotatef(-90.0f, 1.0f, 0.0f, 0.0f);
-      drawCoordinateAxisZ();
+      drawCoordinateAxisZ2();
       glPopMatrix();
   }
 
-  void drawRotatingPyramid() {
+  void drawRotatingPyramid2() {
     glRotatef(t, 0.0f, 0.0f, 1.0f);
-    drawPyramid();
+    drawPyramid2();
   }
 
-  void drawPyramid() {
+  void drawPyramid2() {
     glColor3f(1.0f,0.0f,0.0f);
     glBegin(GL_TRIANGLES);
     glVertex3f( 0.0f, 0.0f, 1.5f);
@@ -206,47 +205,25 @@ private:
 };
 
 //this is a static pointer to a Renderer used in the glut callback functions
-static Renderer *renderer;
+static Renderer2 *renderer2;
 
 //glut static callbacks start
-static void glutResize(int w, int h)
+static void glutResize2(int w, int h)
 {
-  renderer->resize(w,h);
+  renderer2->resize2(w,h);
 }
 
-static void glutDisplay()
+static void glutDisplay2()
 {
-  renderer->display();
+  renderer2->display2();
   glutSwapBuffers();
 }
 
 static void timer(int v)
 {
   float offset = 1.0f;
-  renderer->t += offset;
-  glutDisplay();
+  renderer2->t += offset;
+  glutDisplay2();
   glutTimerFunc(unsigned(20), timer, ++v);
 }
 
-int main(int argc, char **argv)
-{
-  glutInit(&argc, argv);
-  glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
-  glutInitWindowPosition(100,100);
-  glutInitWindowSize(320, 320);
-
-  glutCreateWindow("glViewport Demo");
-
-  glutDisplayFunc(glutDisplay);
-  //glutIdleFunc(glutDisplay);
-  glutReshapeFunc(glutResize);
-
-  renderer = new Renderer;
-  renderer->init();
-
-  glutTimerFunc(unsigned(20), timer, 0);
-
-  glutMainLoop();
-}
-
-*/

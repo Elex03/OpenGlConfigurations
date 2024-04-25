@@ -24,10 +24,13 @@
     <ClCompile Include="src\Engine\Shaders\Shader.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="src\Client\Exp1_Ejemplos\E1_Proyeccion.cpp">
+    <ClCompile Include="src\Client\Exp1_Ejemplos\E1_Proyeccion.h">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="src\Client\Exp1_Ejemplos\E2_Proyeccion.cpp">
+    <ClCompile Include="src\Client\Exp1_Ejemplos\E2_Proyeccion.h">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Client\Exp1_Ejemplos\E3_Proyeccion.h">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
@@ -39,6 +42,9 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="src\Client\Arrays.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Client\Exp1_Ejemplos\Ejemplos.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
