@@ -16,11 +16,7 @@ void changePositions(GLFWwindow* window, int i = 1, int j = 0) {
 		changePositions(window, i, j += 2);
 	}
 	if (j == arrayExample[i][0])
-	{
-		i += 2;
-		changePositions(window, i, 0);
-	}
-
+		changePositions(window, i += 2, 0);
 }
 
 int main(void)
