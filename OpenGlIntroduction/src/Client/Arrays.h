@@ -1,7 +1,7 @@
 #pragma once
 
-int arrayExample[][6] = {
-	{},
+float arrayExample[][6] = {
+	{6},
 	{256, 120, 300, 150, 600, 200}
 };
 float positions[][60] = {
