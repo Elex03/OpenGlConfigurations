@@ -32,6 +32,8 @@ int main(void)
 	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0);
 
 	Shader shader("1.0,0.0,0.0,1.0");
+	glUseProgram(shader.getprogram());
+	
 	while (!glfwWindowShouldClose(window.getWindow())) {
 		glClear(GL_COLOR_BUFFER_BIT);
 
