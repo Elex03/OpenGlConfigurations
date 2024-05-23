@@ -1,4 +1,4 @@
-#include"Camara.h"
+#include"Camera.h"
 Camera::Camera(int width, int height, glm::vec3 position)
 {
     Camera::width = width;
@@ -96,4 +96,4 @@ void Camera::Inputs(GLFWwindow* window)
         // Makes sure the next time the camera looks around it doesn't jump
         firstClick = true;
     }
-};
+};
