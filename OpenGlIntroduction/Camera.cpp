@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #include"Camera.h"
+=======
+#include"Camara.h"
+>>>>>>> e52eacfa2a42afec57b78c7ea459f79092e7e883
 Camera::Camera(int width, int height, glm::vec3 position)
 {
     Camera::width = width;
